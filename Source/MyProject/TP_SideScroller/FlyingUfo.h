@@ -17,7 +17,6 @@ public:
 
 private:
 	bool CanFire = true;
-	float fireRate = 0.5f;
 	float fireTimerCooldown = 0.0f;
 
 protected:
@@ -36,6 +35,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 		int ProjectileAmount;
+	
+	UPROPERTY(EditAnywhere)
+		float fireRate = 0.5f;
 
 
 	UFUNCTION(BlueprintCallable)

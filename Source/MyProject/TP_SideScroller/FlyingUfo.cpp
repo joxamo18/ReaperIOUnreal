@@ -61,12 +61,12 @@ void AFlyingUfo::FireShotUFO()
 		currentOffset = range / 2;
 		offset = range / static_cast<float>(ProjectileAmount);
 		
-		for (int i = 0; i <= ProjectileAmount; i++)
+		for (int i = 0; i < ProjectileAmount; i++)
 		{
 			const FVector actorLocation = this->GetActorLocation();
 			FVector newOffset(0, currentOffset, 0);
 			FVector XDisplacement = actorLocation + newOffset;
-			FVector YDisplacement = this->GetActorUpVector() * -200.0f;
+			FVector YDisplacement = this->GetActorUpVector() * -100.0f;
 			const FVector SpawnLocation = XDisplacement + YDisplacement;
 			const FRotator SpawnRotation(0, 0, 0);
 			FActorSpawnParameters params;
