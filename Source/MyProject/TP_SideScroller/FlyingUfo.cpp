@@ -22,7 +22,6 @@ void AFlyingUfo::BeginPlay()
 void AFlyingUfo::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
@@ -31,4 +30,15 @@ void AFlyingUfo::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
+
+void AFlyingUfo::RemoveHeatlh(float HealthToRemove)
+{
+	UFOHealth -= HealthToRemove;
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::White, TEXT("Removing Health"));
+	if (UFOHealth <= 0)
+	{
+		Destroy();
+	}
+}
+
 
