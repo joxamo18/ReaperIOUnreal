@@ -15,6 +15,11 @@ public:
 	// Sets default values for this pawn's properties
 	AFlyingUfo();
 
+private:
+	bool CanFire = true;
+	float fireRate = 0.5f;
+	float fireTimerCooldown = 0.0f;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -29,6 +34,16 @@ public:
 	UPROPERTY(EditAnywhere)
 		float UFOHealth;
 
+	UPROPERTY(EditAnywhere)
+		int ProjectileAmount;
+
+
 	UFUNCTION(BlueprintCallable)
 		void RemoveHeatlh(float HealthToRemove);
+
+	UFUNCTION(BlueprintCallable)
+		void FireShotUFO();
+
+	UPROPERTY(EditAnywhere, Category = Players, meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class AActor> Projectile;
 };
